@@ -1,0 +1,12 @@
+package licoes;
+
+public class Main {
+
+	public static void main(String[] args) {
+		String nome = "Joao";
+		int idade = 20;
+		System.out.println("Meu nome e " + nome + "e tenho " + idade + " anos.");
+		
+	}
+
+}
