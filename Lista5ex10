@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Exercicio10 {
+
+    public static void main(String[] args) {
+        String usuario = lerUsuario();
+        String senha = lerSenha();
+        
+        boolean loginValido = validarLogin(usuario, senha);
+        mostrarResultado(loginValido);
+    }
+
+    public static String lerUsuario() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Usuário: ");
+        return scanner.nextLine();
+    }
+
+    public static String lerSenha() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Senha: ");
+        return scanner.nextLine();
+    }
+
+    public static boolean validarLogin(String usuario, String senha) {
+        // Exemplo de credenciais corretas: admin / 1234
+        return usuario.equals("admin") && senha.equals("1234");
+    }
+
+    public static void mostrarResultado(boolean sucesso) {
+        if (sucesso) {
+            System.out.println("Login efetuado com sucesso! Bem-vindo.");
+        } else {
+            System.out.println("Erro: Usuário ou senha incorretos.");
+        }
+    }
+}
