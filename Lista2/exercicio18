@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int opcao, n1, n2;
+
+        while (true) {
+
+            System.out.println("1 - Somar");
+            System.out.println("2 - Subtrair");
+            System.out.println("3 - Sair");
+
+            System.out.print("Escolha uma opção: ");
+            opcao = sc.nextInt();
+
+            switch (opcao) {
+
+                case 1:
+                    System.out.print("Digite o primeiro número: ");
+                    n1 = sc.nextInt();
+
+                    System.out.print("Digite o segundo número: ");
+                    n2 = sc.nextInt();
+
+                    System.out.println("Soma = " + (n1 + n2));
+                    break;
+
+                case 2:
+                    System.out.print("Digite o primeiro número: ");
+                    n1 = sc.nextInt();
+
+                    System.out.print("Digite o segundo número: ");
+                    n2 = sc.nextInt();
+
+                    System.out.println("Subtração = " + (n1 - n2));
+                    break;
+
+                case 3:
+                    System.out.println("Programa encerrado");
+                    return;
+
+                default:
+                    System.out.println("Opção inválida");
+            }
+        }
+    }
+}
