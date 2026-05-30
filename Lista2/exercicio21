@@ -1,0 +1,79 @@
+import java.util.Scanner;
+
+public class SistemaBancario {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String usuarioCorreto = "admin";
+        String senhaCorreta = "1234";
+        double saldo = 500.00; // Saldo inicial
+
+        System.out.println("=== BEM-VINDO AO SISTEMA BANCÁRIO ===");
+        
+        System.out.print("Digite o usuário: ");
+        String usuarioDigitado = scanner.next();
+        System.out.print("Digite a senha: ");
+        String senhaDigitada = scanner.next();
+
+        if (usuarioDigitado.equals(usuarioCorreto) && senhaDigitada.equals(senhaCorreta)) {
+            System.out.println("\nLogin realizado com sucesso!\n");
+            
+            boolean continuar = true;
+
+            while (continuar) {
+                System.out.println("----- MENU PRINCIPAL -----");
+                System.out.println("1 - Ver saldo");
+                System.out.println("2 - Depositar");
+                System.out.println("3 - Sacar");
+                System.out.println("4 - Sair");
+                System.out.print("Escolha uma opção: ");
+                int opcao = scanner.nextInt();
+
+                switch (opcao) {
+                    case 1:
+                        System.out.printf("Seu saldo atual é: R$ %.2f%n\n", saldo);
+                        break;
+
+                    case 2:
+                        System.out.print("Digite o valor para depósito: R$ ");
+                        double valorDeposito = scanner.nextDouble();
+                        if (valorDeposito > 0) {
+                            saldo += valorDeposito; // Atualiza o saldo corretamente
+                            System.out.printf("Depósito de R$ %.2f realizado com sucesso!%n\n", valorDeposito);
+                        } else {
+                            System.out.println("Valor de depósito inválido.\n");
+                        }
+                        break;
+
+                    case 3:
+                        System.out.print("Digite o valor para saque: R$ ");
+                        double valorSaque = scanner.nextDouble();
+                        
+                        if (valorSaque > saldo) {
+                            System.out.println("Erro: Saldo insuficiente para realizar esta operação.\n");
+                        } else if (valorSaque <= 0) {
+                            System.out.println("Valor de saque inválido.\n");
+                        } else {
+                            saldo -= valorSaque; // Atualiza o saldo corretamente
+                            System.out.printf("Saque de R$ %.2f realizado com sucesso!%n\n", valorSaque);
+                        }
+                        break;
+
+                    case 4:
+                        System.out.println("Encerrando o sistema. Até logo!");
+                        continuar = false;
+                        break;
+
+                    default:
+                        System.out.println("Opção inválida! Tente novamente.\n");
+                        break;
+                }
+            }
+
+        } else {
+            System.out.println("Usuário ou senha incorretos. Acesso negado.");
+        }
+
+        scanner.close();
+    }
+}
