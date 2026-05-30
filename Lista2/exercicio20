@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class SistemaImposto {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(String.class);
+
+        System.out.print("Digite o salário: R$ ");
+        double salario = scanner.nextDouble();
+        double imposto = 0;
+
+        if (salario <= 2000) {
+            imposto = 0; // Isento
+        } else if (salario > 2000 && salario <= 5000) {
+            imposto = salario * 0.10; // 10%
+        } else {
+            imposto = salario * 0.20; // 20%
+        }
+
+        if (imposto == 0) {
+            System.out.println("Status: Isento de imposto.");
+        } else {
+            System.out.printf("O valor do imposto é: R$ %.2f%n", imposto);
+        }
+
+        scanner.close();
+    }
+}
