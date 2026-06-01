@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Exercicio23 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[][] matriz = new int[3][3];
+        int[][] rotacionada = new int[3][3];
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                matriz[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Aplica a regra de rotação 90º à direita
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                rotacionada[j][2 - i] = matriz[i][j];
+            }
+        }
+
+        System.out.println("Matriz Rotacionada 90 graus:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(rotacionada[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        scanner.close();
+    }
+}
