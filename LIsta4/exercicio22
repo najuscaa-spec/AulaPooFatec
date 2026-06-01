@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Exercicio22 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[][] matriz = new int[3][3];
+        boolean valido = true;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                matriz[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Verifica duplicados de forma linear simples
+        int[] linear = new int[9];
+        int k = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                linear[k++] = matriz[i][j];
+            }
+        }
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = i + 1; j < 9; j++) {
+                if (linear[i] == linear[j]) {
+                    valido = false;
+                    break;
+                }
+            }
+        }
+
+        System.out.println(valido ? "Não possui repetidos!" : "Possui repetidos.");
+        scanner.close();
+    }
+}
