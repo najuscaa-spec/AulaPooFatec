@@ -1,0 +1,21 @@
+public class Exercicio02 {
+
+    public static void main(String[] args) {
+        int n1 = 10;
+        int n2 = 20;
+        
+        // Chamamos a função de somar passando os dois números
+        int resultado = somar(n1, n2);
+        
+        // Passamos o resultado para a função de exibir
+        mostrarResultado(resultado);
+    }
+
+    public static int somar(int numero1, int numero2) {
+        return numero1 + numero2;
+    }
+
+    public static void mostrarResultado(int resultado) {
+        System.out.println("O resultado da soma é: " + resultado);
+    }
+}
