@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class Exercicio15 {
+
+    public static String nomeJogador;
+    public static int pontuacao = 0;
+
+    public static void main(String[] args) {
+        iniciarJogo();
+        mostrarMenu();
+        criarJogador();
+        
+        // Executa 2 turnos de perguntas
+        executarTurno(1, "Qual a linguagem estudada nesta lista?", "Java");
+        executarTurno(2, "Funções devem ter uma única responsabilidade? (Sim/Não)", "Sim");
+        
+        verificarVitoria();
+        encerrarJogo();
+    }
+
+    public static void iniciarJogo() {
+        System.out.println("===============================");
+        System.out.println(" BEM-VINDO AO QUIZ DE CÓDIGO! ");
+        System.out.println("===============================");
+    }
+
+    public static void mostrarMenu() {
+        System.out.println("Regras: Responda corretamente para acumular pontos.");
+    }
+
+    public static void criarJogador() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite seu nickname: ");
+        nomeJogador = scanner.nextLine();
+        System.out.println("Boa sorte, " + nomeJogador + "!");
+    }
+
+    public static void ejecutarTurno(int numeroTurno, String pergunta, String respostaCorreta) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\n[TURNO " + numeroTurno + "]");
+        System.out.println("Pergunta: " + pergunta);
+        System.out.print("Sua resposta: ");
+        String respostaUser = scanner.nextLine();
+
+        if (respostaUser.equalsIgnoreCase(respostaCorreta)) {
+            System.out.println("Correto!");
+            pontuacao += 10;
+        } else {
+            System.out.println("Errado! A resposta era: " + respostaCorreta);
+        }
+    }
+
+    public static void verificarVitoria() {
+        System.out.println("\n--- FIM DAS PERGUNTAS ---");
+        if (pontuacao >= 10) {
+            System.out.println("Parabéns " + nomeJogador + ", você passou no teste!");
+        } else {
+            System.out.println("Ops, estude um pouco mais sobre funções!");
+        }
+    }
+
+    public static void encerrarJogo() {
+        System.out.println("Pontuação total final: " + pontuacao + " pontos.");
+        System.out.println("Aplicação finalizada.");
+    }
+}
